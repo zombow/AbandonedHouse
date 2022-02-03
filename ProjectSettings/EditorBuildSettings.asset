@@ -6,8 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 3b1cc8531d926234f8fe1a7b704d772a
+  - enabled: 1
     path: Assets/Scenes/AbandonedHouse.unity
     guid: b451ef2cd7066f546963cf13cbba0ea6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: efba05cbac51b0448b52d220e5924f81, type: 2}
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 9e6d66f195247124a9546fe6c497e244, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2544b9f9ed3abc64e9b26dff5540c5eb, type: 2}
