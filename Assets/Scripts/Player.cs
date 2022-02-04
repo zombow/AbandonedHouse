@@ -15,7 +15,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
+        PlaySound();
+        GrabItem();
+    }
 
+    private void PlaySound()
+    {
         if (currentTime > 1)
         {
             if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp)
@@ -28,4 +33,29 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    private void GrabItem()
+    {
+        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.Touch) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.Touch))
+        {
+            GameObject[] items = ItemManager.instance.items;
+            try
+            {
+                for (int i = 0; i < items.Length; i++)
+                {
+                    if (Vector3.Distance(items[i].transform.position, transform.position) <= 1.5f)
+                    {
+                        Destroy(items[i]);
+                        break;
+                    }
+                }
+            } catch (MissingReferenceException e)
+            {
+
+            }
+
+            ItemManager.instance.items = GameObject.FindGameObjectsWithTag("GripObject");
+        }
+    }
+
 }
