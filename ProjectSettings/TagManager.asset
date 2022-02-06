@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - GripObject
+  - Door
   layers:
   - Default
   - TransparentFX

@@ -45,7 +45,11 @@ public class Player : MonoBehaviour
                 {
                     if (Vector3.Distance(items[i].transform.position, transform.position) <= 1.5f)
                     {
-                        Destroy(items[i]);
+                        if (items[i].gameObject.name.Equals("BookItem"))
+                        {
+                            ItemManager.instance.destroyItem = items[i].gameObject.name;
+                        }
+                        items[i].SetActive(false);
                         break;
                     }
                 }
@@ -53,8 +57,6 @@ public class Player : MonoBehaviour
             {
 
             }
-
-            ItemManager.instance.items = GameObject.FindGameObjectsWithTag("GripObject");
         }
     }
 
