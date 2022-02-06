@@ -22,25 +22,22 @@ public class ItemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (destroyItem != null && destroyItem == "BookItem")
-        {
-            for (int i = 0; i < doorObjects.Length; i++)
-            {
-                if (doorObjects[i].name.Equals("StudyRoomDoor"))
-                {
-                    //Animation anim = doorObjects[i].GetComponent<Animation>();
-                    //anim.Play("OpenDoor");
+        //if (destroyItem != null && destroyItem == "BookItem")
+        //{
+        //    for (int i = 0; i < doorObjects.Length; i++)
+        //    {
+        //        if (doorObjects[i].name.Equals("StudyRoomDoor"))
+        //        {
+                    
 
-                    //SoundManager.instance.GetItem();
-                    //StoryManager.instance.FirstMemo();
-                    destroyItem = null;
-                    //AudioSource audio = doorObjects[i].GetComponent<AudioSource>();
-                    //audio.transform.position = doorObjects[i].transform.position;
-                    //audio.Play();
-                    break;
-                }
-            }
-        }
+        //            //SoundManager.instance.GetItem();
+        //            //StoryManager.instance.FirstMemo();
+        //            destroyItem = null;
+                    
+        //            break;
+        //        }
+        //    }
+        //}
     }
 
 

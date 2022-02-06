@@ -5,13 +5,24 @@ using UnityEngine;
 public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager instance = null;
-    public bool pullBook;
+    bool pullBook;
 
     // TODO : flashlight 비출 때 이미 인터렉션 끝난 오브젝트는 셰이더 벗겨야함
-    public bool PullBook
+    //public bool PullBook
+    //{
+    //    get { return pullBook; }
+    //    set { this.pullBook = value; }
+    //}
+
+    public bool PullBookComplete
     {
-        get { return pullBook; }
-        set { this.pullBook = value; }
+        get
+        {
+            if (GameObject.Find("BookItem").transform.position == new Vector3(-2.873f, 3.6356f, -3.2f))
+                return true;
+            else
+                return false;
+        }
     }
 
     // Start is called before the first frame update
