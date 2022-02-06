@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GripObject
   - Door
+  - Button
   layers:
   - Default
   - TransparentFX

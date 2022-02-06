@@ -5,10 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float currentTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager.instance.Background();
+        //TODO : BGM empty object 만들어서 배경음악 입혀야함
+        //SoundManager.instance.Background();
     }
 
     // Update is called once per frame
@@ -45,11 +47,14 @@ public class Player : MonoBehaviour
                 {
                     if (Vector3.Distance(items[i].transform.position, transform.position) <= 1.5f)
                     {
-                        if (items[i].gameObject.name.Equals("BookItem"))
+                        if (items[i].gameObject.name.Equals("BookItem") && !InteractionManager.instance.PullBook)
                         {
                             ItemManager.instance.destroyItem = items[i].gameObject.name;
+                            Animation anim = items[i].GetComponent<Animation>();
+                            anim.Play("PullBook");
+                            InteractionManager.instance.PullBook = true;
                         }
-                        items[i].SetActive(false);
+                        //items[i].SetActive(false);
                         break;
                     }
                 }

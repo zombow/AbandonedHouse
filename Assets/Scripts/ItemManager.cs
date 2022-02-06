@@ -28,12 +28,15 @@ public class ItemManager : MonoBehaviour
             {
                 if (doorObjects[i].name.Equals("StudyRoomDoor"))
                 {
-                    Animation anim = doorObjects[i].GetComponent<Animation>();
-                    AudioSource audio = doorObjects[i].GetComponent<AudioSource>();
-                    audio.transform.position = doorObjects[i].transform.position;
-                    anim.Play("OpenDoor");
-                    audio.Play();
+                    //Animation anim = doorObjects[i].GetComponent<Animation>();
+                    //anim.Play("OpenDoor");
+
+                    //SoundManager.instance.GetItem();
+                    //StoryManager.instance.FirstMemo();
                     destroyItem = null;
+                    //AudioSource audio = doorObjects[i].GetComponent<AudioSource>();
+                    //audio.transform.position = doorObjects[i].transform.position;
+                    //audio.Play();
                     break;
                 }
             }

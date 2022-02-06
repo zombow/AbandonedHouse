@@ -44,4 +44,14 @@ public class SoundManager : MonoBehaviour
     {
         Play("Dungeon Chamber");
     }
+
+    public void GetItem()
+    {
+        Play("GetItem");
+    }
+
+    public void OpenDoor()
+    {
+        Play("creaking-door-2");
+    }
 }
