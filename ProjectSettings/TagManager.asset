@@ -7,6 +7,8 @@ TagManager:
   - GripObject
   - Door
   - Button
+  - 2FGhost
+  - 2FHook
   layers:
   - Default
   - TransparentFX
