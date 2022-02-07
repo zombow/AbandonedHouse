@@ -8,6 +8,9 @@ public class FlashLight : MonoBehaviour
 {
     public Transform hand;
     public LineRenderer lr;
+
+    float currentTime = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,20 @@ public class FlashLight : MonoBehaviour
     Material lookObjectMat;
     // Update is called once per frame
     void Update()
+    {
+        RaySth();
+    }
+
+    private void ResetMaterial()
+    {
+        if (lookObjectMat != null)
+        {
+            lookObjectMat.SetFloat("_Outline", 0);
+            lookObjectMat = null;
+        }
+    }
+
+    private void RaySth()
     {
         Ray ray = new Ray(hand.position, hand.forward);
         RaycastHit hitInfo;
@@ -42,7 +59,10 @@ public class FlashLight : MonoBehaviour
                 }
             }
 
-
+            if (hitInfo.transform.CompareTag("Enemy"))
+            {
+                EnemyStateManager.instance.triggerRay(hitInfo);
+            }
         }
         else
         {
@@ -50,12 +70,4 @@ public class FlashLight : MonoBehaviour
         }
     }
 
-    private void ResetMaterial()
-    {
-        if (lookObjectMat != null)
-        {
-            lookObjectMat.SetFloat("_Outline", 0);
-            lookObjectMat = null;
-        }
-    }
 }

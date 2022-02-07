@@ -9,6 +9,7 @@ TagManager:
   - Button
   - 2FGhost
   - 2FHook
+  - Enemy
   layers:
   - Default
   - TransparentFX
