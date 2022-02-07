@@ -10,6 +10,7 @@ TagManager:
   - 2FGhost
   - 2FHook
   - Enemy
+  - 2FGhost2
   layers:
   - Default
   - TransparentFX

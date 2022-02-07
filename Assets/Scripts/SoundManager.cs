@@ -54,4 +54,9 @@ public class SoundManager : MonoBehaviour
     {
         Play("creaking-door-2");
     }
+
+    public void GirlSc()
+    {
+        Play("GirL_Sc");
+    }
 }

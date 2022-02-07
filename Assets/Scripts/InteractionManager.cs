@@ -52,6 +52,12 @@ public class InteractionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (PullBookComplete && OpenStudyRoomDoorButtonComplete && DropPictureComplete)
+        //    Open2Floor();
+    }
+
+    private void Open2Floor()
+    {
+        Destroy(GameObject.Find("Shield"));
     }
 }
