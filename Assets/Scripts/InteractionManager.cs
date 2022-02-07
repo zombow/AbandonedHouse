@@ -6,7 +6,9 @@ public class InteractionManager : MonoBehaviour
 {
     public static InteractionManager instance = null;
     public static Vector3 BookItemTargetPosition = new Vector3(-2.873f, 3.6356f, -3.2f);
-    public static Vector3 OpenDoorButtonTargetPosition = new Vector3(-3.01f, 3.788f, -3.04f);
+
+    bool dropPicture;
+    bool openStudyRoomDoor;
 
     public bool PullBookComplete
     {
@@ -18,13 +20,27 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
-    public bool OpenDoorButtonComplete
+    public bool DropPictureComplete
     {
         get
         {
-            if (GameObject.Find("OpenDoorButton").transform.position == OpenDoorButtonTargetPosition)
-                return true;
-            return false;
+            return dropPicture;
+        }
+        set
+        {
+            this.dropPicture = value;
+        }
+    }
+
+    public bool OpenStudyRoomDoorButtonComplete
+    {
+        get
+        {
+            return openStudyRoomDoor;
+        }
+        set
+        {
+            this.openStudyRoomDoor = value;
         }
     }
     // Start is called before the first frame update

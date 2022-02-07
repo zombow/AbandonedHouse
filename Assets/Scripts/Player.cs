@@ -45,11 +45,25 @@ public class Player : MonoBehaviour
             {
                 for (int i = 0; i < items.Length; i++)
                 {
-                    if (Vector3.Distance(items[i].transform.position, transform.position) <= 1.5f)
+                    if (Vector3.Distance(items[i].transform.position, transform.position) <= 3f)
                     {
                         if (items[i].gameObject.name.Equals("BookItem") && !InteractionManager.instance.PullBookComplete)
                         {
                             items[i].transform.position = Vector3.Lerp(items[i].transform.position, InteractionManager.BookItemTargetPosition, 0.5f);
+                        }
+                        else if (items[i].gameObject.name.Equals("Picture_7 (1)") && !InteractionManager.instance.DropPictureComplete)
+                        {
+                            Animation anim = items[i].gameObject.GetComponent<Animation>();
+                            anim.Play("DropPicture");
+                            InteractionManager.instance.DropPictureComplete = true;
+
+                            GameObject toiletDoor = GameObject.Find("ToiletDoor");
+                            Animation anim2 = toiletDoor.GetComponent<Animation>();
+                            anim2.Play("OpenToiletDoor");
+
+                            AudioSource audio = toiletDoor.GetComponent<AudioSource>();
+                            audio.transform.position = toiletDoor.transform.position;
+                            audio.Play();
                         }
                         break;
                     }

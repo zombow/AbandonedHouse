@@ -69,5 +69,4 @@ public class FlashLight : MonoBehaviour
             lr.SetPosition(1, ray.origin + ray.direction * 20);
         }
     }
-
 }
