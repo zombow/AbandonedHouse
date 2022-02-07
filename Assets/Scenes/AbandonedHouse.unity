@@ -39355,22 +39355,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4111221921993862, guid: e143ddf843cfacf4fa29b5be6314f329, type: 3}
   m_PrefabInstance: {fileID: 1282147044}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &799852750
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799852748}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 4c2438791f69c164bb086b67dcadc1aa, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 4c2438791f69c164bb086b67dcadc1aa, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!64 &799852752
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39385,25 +39369,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 59c9c0a97946b6b4a993d2c3debbf2b2, type: 3}
---- !u!95 &799852754
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799852748}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e0fcd5d88647eeb4ebfb69bcb7d8cc8e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &802139887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39616,7 +39581,7 @@ GameObject:
   - component: {fileID: 814257086}
   m_Layer: 0
   m_Name: OpenDoorButton
-  m_TagString: Button
+  m_TagString: GripObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39705,7 +39670,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814257081}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 8498bd48535f5314fbbc2db6d93d6b62, type: 2}
   m_Animations:

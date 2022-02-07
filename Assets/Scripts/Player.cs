@@ -47,16 +47,9 @@ public class Player : MonoBehaviour
                 {
                     if (Vector3.Distance(items[i].transform.position, transform.position) <= 1.5f)
                     {
-                        if (items[i].gameObject.name.Equals("BookItem"))
-                        {
-                            print(items[i].gameObject.transform.position);
-                        }
                         if (items[i].gameObject.name.Equals("BookItem") && !InteractionManager.instance.PullBookComplete)
                         {
-                            ItemManager.instance.destroyItem = items[i].gameObject.name;
-                            Animation anim = items[i].GetComponent<Animation>();
-                            anim.Play("PullBook");
-                            //InteractionManager.instance.PullBook = true;
+                            items[i].transform.position = Vector3.Lerp(items[i].transform.position, InteractionManager.BookItemTargetPosition, 0.3f);
                         }
                         break;
                     }

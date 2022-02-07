@@ -13,12 +13,14 @@ public class OpenDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InteractionManager.instance.PullBookComplete == true)
+        if (InteractionManager.instance.PullBookComplete && !InteractionManager.instance.OpenDoorButtonComplete)
         {
             if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.Touch) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.Touch))
             {
-                Animation anim = gameObject.GetComponent<Animation>();
-                anim.Play("PushButton");
+                //Animation anim = gameObject.GetComponent<Animation>();
+                //anim.Play("PushButton");
+
+                transform.position = Vector3.Lerp(transform.position, InteractionManager.OpenDoorButtonTargetPosition, 0.3f);
 
                 GameObject studyRoomDoor = GameObject.Find("StudyRoomDoor");
                 Animation anim2 = studyRoomDoor.GetComponent<Animation>();
