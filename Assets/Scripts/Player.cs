@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
                     {
                         if (items[i].gameObject.name.Equals("BookItem") && !InteractionManager.instance.PullBookComplete)
                         {
-                            items[i].transform.position = Vector3.Lerp(items[i].transform.position, InteractionManager.BookItemTargetPosition, 0.3f);
+                            items[i].transform.position = Vector3.Lerp(items[i].transform.position, InteractionManager.BookItemTargetPosition, 0.1f);
                         }
                         break;
                     }

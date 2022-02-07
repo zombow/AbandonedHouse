@@ -80,6 +80,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\CowController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\HandMeshUI.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\InteractionManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\AppDeeplink\AppDeeplinkUI.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarSDKManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\DebugUI\DebugUISample.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabManager.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarPacket.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNode.cs" />
+    <Compile Include="Assets\Scripts\OpenDoor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorSession.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\CharacterCameraConstraint.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabbableCrosshair.cs" />
@@ -212,12 +214,10 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorUIManager.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\UIShapesDemo\ColorChanger.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\SelectivePassthroughExperience.cs" />
+    <Compile Include="Assets\Scripts\StoryManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportAimHandlerLaser.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrackSegment.cs" />
-    <Compile Include="Assets\Scripts\StoryManager.cs" />
-    <Compile Include="Assets\Scripts\InteractionManager.cs" />
-    <Compile Include="Assets\Scripts\OpenDoor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
