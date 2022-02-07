@@ -20,7 +20,7 @@ public class OpenDoor : MonoBehaviour
                 //Animation anim = gameObject.GetComponent<Animation>();
                 //anim.Play("PushButton");
 
-                transform.position = Vector3.Lerp(transform.position, InteractionManager.OpenDoorButtonTargetPosition, 0.3f);
+                transform.position = Vector3.Lerp(transform.position, InteractionManager.OpenDoorButtonTargetPosition, 0.1f);
 
                 GameObject studyRoomDoor = GameObject.Find("StudyRoomDoor");
                 Animation anim2 = studyRoomDoor.GetComponent<Animation>();
