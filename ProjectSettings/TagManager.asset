@@ -11,6 +11,8 @@ TagManager:
   - 2FHook
   - Enemy
   - 2FGhost2
+  - Item
+  - Head2
   layers:
   - Default
   - TransparentFX

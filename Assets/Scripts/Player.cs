@@ -5,12 +5,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float currentTime;
+    List<GameObject> items = new List<GameObject>();
+    int idx = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         //TODO : BGM empty object 만들어서 배경음악 입혀야함
         //SoundManager.instance.Background();
+        items.AddRange(GameObject.FindGameObjectsWithTag("Item"));
     }
 
     // Update is called once per frame
@@ -19,6 +22,8 @@ public class Player : MonoBehaviour
         currentTime += Time.deltaTime;
         PlaySound();
         GrabItem();
+        ChangeFlashLightColor();
+        ChangeItem();
     }
 
     private void PlaySound()
@@ -38,7 +43,7 @@ public class Player : MonoBehaviour
 
     private void GrabItem()
     {
-        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.Touch) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.Touch))
+        if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.Touch))
         {
             GameObject[] items = ItemManager.instance.items;
             try
@@ -75,4 +80,30 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void ChangeFlashLightColor()
+    {
+        if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.Touch)) 
+        {
+            GameObject.Find("FlashLight").GetComponent<Light>().color = Color.blue;
+            return;
+        }
+        GameObject.Find("FlashLight").GetComponent<Light>().color = Color.white;
+        
+    }
+
+    private void ChangeItem()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            items[idx].GetComponent<MeshRenderer>().enabled = false;
+            ChangeInventory();
+            items[idx].GetComponent<MeshRenderer>().enabled = true;
+        }
+    }
+
+    private void ChangeInventory()
+    {
+        if (idx < items.Count -1) idx++;
+        else idx = 0;
+    }
 }

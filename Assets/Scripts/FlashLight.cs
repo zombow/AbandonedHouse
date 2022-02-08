@@ -9,8 +9,6 @@ public class FlashLight : MonoBehaviour
     public Transform hand;
     public LineRenderer lr;
 
-    float currentTime = 0;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +61,7 @@ public class FlashLight : MonoBehaviour
             {
                 EnemyStateManager.instance.triggerRay(hitInfo);
             }
+
         }
         else
         {

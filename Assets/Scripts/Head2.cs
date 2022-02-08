@@ -8,7 +8,7 @@ public class Head2 : MonoBehaviour
     Quaternion des;
     Quaternion rdes;
     Quaternion origin;
-    public FaceShowUp show;
+    public Head show;
 
     float currentTime;
     float creatTime = 3f;
@@ -22,37 +22,66 @@ public class Head2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(show!=null)
+        //if(show!=null)
+        //{
+        //    if(show.head2Check)
+        //    {
+
+        //        float a = Quaternion.Angle(origin, transform.rotation);
+
+        //        if (a >= 20f) qqqq = !qqqq;
+        //        if(qqqq)
+        //        {
+        //            transform.rotation = Quaternion.Slerp(transform.rotation, rdes, Time.deltaTime);
+        //            a = -20f;
+        //        }
+        //        if(!qqqq)
+        //        {
+        //            transform.rotation = Quaternion.Slerp(transform.rotation, des, Time.deltaTime);
+        //            a = -20f;
+        //        }
+
+
+        //        //currentTime += Time.deltaTime;
+
+        //        //transform.rotation = Quaternion.Slerp(transform.rotation, des, Time.deltaTime);
+
+        //        //if(currentTime > creatTime)
+        //        //{
+        //        //    transform.rotation = Quaternion.Slerp(transform.rotation, rdes, Time.deltaTime);
+        //        //}
+
+        //        //transform.rotation *= Quaternion.Euler(Vector3.Lerp(new Vector3(-40, 0, 0), new Vector3(40, 0, 0), Time.deltaTime)/100);      
+        //    }
+        //}
+        ShakeHead();
+    }
+
+    public void ShakeHead()
+    {
+        float a = Quaternion.Angle(origin, transform.rotation);
+
+        if (a >= 20f) qqqq = !qqqq;
+        if (qqqq)
         {
-            if(show.Head2Check)
-            {
-                
-                float a = Quaternion.Angle(origin, transform.rotation);
-
-                if (a >= 20f) qqqq = !qqqq;
-                if(qqqq)
-                {
-                    transform.rotation = Quaternion.Slerp(transform.rotation, rdes, Time.deltaTime);
-                    a = -20f;
-                }
-                if(!qqqq)
-                {
-                    transform.rotation = Quaternion.Slerp(transform.rotation, des, Time.deltaTime);
-                    a = -20f;
-                }
-
-
-                //currentTime += Time.deltaTime;
-
-                //transform.rotation = Quaternion.Slerp(transform.rotation, des, Time.deltaTime);
-
-                //if(currentTime > creatTime)
-                //{
-                //    transform.rotation = Quaternion.Slerp(transform.rotation, rdes, Time.deltaTime);
-                //}
-
-                //transform.rotation *= Quaternion.Euler(Vector3.Lerp(new Vector3(-40, 0, 0), new Vector3(40, 0, 0), Time.deltaTime)/100);      
-            }
+            transform.rotation = Quaternion.Slerp(transform.rotation, rdes, Time.deltaTime);
+            a = -20f;
         }
+        if (!qqqq)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, des, Time.deltaTime);
+            a = -20f;
+        }
+
+        currentTime += Time.deltaTime;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, des, Time.deltaTime);
+
+        if (currentTime > creatTime)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, rdes, Time.deltaTime);
+        }
+
+        transform.rotation *= Quaternion.Euler(Vector3.Lerp(new Vector3(-40, 0, 0), new Vector3(40, 0, 0), Time.deltaTime) / 100);
     }
 }

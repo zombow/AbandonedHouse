@@ -9,6 +9,8 @@ public class InteractionManager : MonoBehaviour
 
     bool dropPicture;
     bool openStudyRoomDoor;
+    GameObject[] ghostImages;
+    Dictionary<GameObject, bool> isShowGhostImage = new Dictionary<GameObject, bool>();
 
     public bool PullBookComplete
     {
@@ -43,10 +45,17 @@ public class InteractionManager : MonoBehaviour
             this.openStudyRoomDoor = value;
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;    
+        instance = this;
+        ghostImages = GameObject.FindGameObjectsWithTag("2FGhost");
+        for (int i = 0; i < ghostImages.Length; i++)
+        {
+            isShowGhostImage.Add(ghostImages[i], false);
+            ghostImages[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -59,5 +68,15 @@ public class InteractionManager : MonoBehaviour
     private void Open2Floor()
     {
         Destroy(GameObject.Find("Shield"));
+    }
+
+    public void SetShowGhostImage(GameObject ghostImage, bool status)
+    {
+        isShowGhostImage[ghostImage] = status;
+    }
+
+    public bool GetShowGhostImage(GameObject ghostImage)
+    {
+        return isShowGhostImage[ghostImage];
     }
 }
