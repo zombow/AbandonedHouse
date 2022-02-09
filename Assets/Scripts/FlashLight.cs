@@ -39,7 +39,7 @@ public class FlashLight : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo))
         {
             lr.SetPosition(1, hitInfo.point);
-            if (hitInfo.transform.CompareTag("GripObject"))
+            if (hitInfo.transform.CompareTag("GripObject") || hitInfo.transform.CompareTag("Item"))
             {
                 MeshRenderer ren = hitInfo.transform.GetComponent<MeshRenderer>();
                 if (ren != null)

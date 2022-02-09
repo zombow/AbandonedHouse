@@ -13,7 +13,7 @@ public class PortalGate : MonoBehaviour
 
     void GateOpen()
     {
-        if(isGateOpen == true)
+        if (isGateOpen == true)
         {
             Effect.gameObject.SetActive(true);
             soundCheck = true;
@@ -42,6 +42,6 @@ public class PortalGate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GateOpen();
+        //GateOpen();
     }
 }

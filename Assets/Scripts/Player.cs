@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     float currentTime;
-    List<GameObject> items = new List<GameObject>();
     int idx = 0;
 
     // Start is called before the first frame update
@@ -13,7 +12,6 @@ public class Player : MonoBehaviour
     {
         //TODO : BGM empty object 만들어서 배경음악 입혀야함
         //SoundManager.instance.Background();
-        items.AddRange(GameObject.FindGameObjectsWithTag("Item"));
     }
 
     // Update is called once per frame
@@ -21,7 +19,8 @@ public class Player : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         PlaySound();
-        GrabItem();
+        Interaction();
+        GetItem();
         ChangeFlashLightColor();
         ChangeItem();
     }
@@ -41,51 +40,51 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void GrabItem()
+    private void Interaction()
     {
         if (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.Touch))
         {
             GameObject[] items = ItemManager.instance.items;
-            try
+            for (int i = 0; i < items.Length; i++)
             {
-                for (int i = 0; i < items.Length; i++)
+                if (Vector3.Distance(items[i].transform.position, transform.position) <= 3f)
                 {
-                    if (Vector3.Distance(items[i].transform.position, transform.position) <= 3f)
+                    if (items[i].gameObject.name.Equals("BookItem") && !InteractionManager.instance.PullBookComplete)
                     {
-                        if (items[i].gameObject.name.Equals("BookItem") && !InteractionManager.instance.PullBookComplete)
-                        {
-                            items[i].transform.position = Vector3.Lerp(items[i].transform.position, InteractionManager.BookItemTargetPosition, 0.5f);
-                        }
-                        else if (items[i].gameObject.name.Equals("Picture_7 (1)") && !InteractionManager.instance.DropPictureComplete)
-                        {
-                            Animation anim = items[i].gameObject.GetComponent<Animation>();
-                            anim.Play("DropPicture");
-                            InteractionManager.instance.DropPictureComplete = true;
-
-                            GameObject toiletDoor = GameObject.Find("ToiletDoor");
-                            Animation anim2 = toiletDoor.GetComponent<Animation>();
-                            anim2.Play("OpenToiletDoor");
-
-                            AudioSource audio = toiletDoor.GetComponent<AudioSource>();
-                            audio.transform.position = toiletDoor.transform.position;
-                            audio.Play();
-                        }
-                        break;
+                        items[i].transform.position = Vector3.Lerp(items[i].transform.position, InteractionManager.BookItemTargetPosition, 0.5f);
+                        ItemManager.instance.battery.SetActive(true);
                     }
-                }
-            } catch (MissingReferenceException e)
-            {
+                    else if (items[i].gameObject.name.Equals("Picture_7 (1)") && !InteractionManager.instance.DropPictureComplete)
+                    {
+                        Animation anim = items[i].gameObject.GetComponent<Animation>();
+                        anim.Play("DropPicture");
+                        InteractionManager.instance.DropPictureComplete = true;
 
+                        ItemManager.instance.killCamera.SetActive(true);
+
+                        GameObject toiletDoor = GameObject.Find("ToiletDoor");
+                        Animation anim2 = toiletDoor.GetComponent<Animation>();
+                        anim2.Play("OpenToiletDoor");
+
+                        AudioSource audio = toiletDoor.GetComponent<AudioSource>();
+                        audio.transform.position = toiletDoor.transform.position;
+                        audio.Play();
+                    }
+                    break;
+                }
             }
         }
+
+        
     }
 
     private void ChangeFlashLightColor()
     {
         if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.Touch)) 
         {
-            GameObject.Find("FlashLight").GetComponent<Light>().color = Color.blue;
-            return;
+            if (ItemManager.instance.GetActiveGameObject("Battery"))
+                GameObject.Find("FlashLight").GetComponent<Light>().color = Color.blue;
+                return;
         }
         GameObject.Find("FlashLight").GetComponent<Light>().color = Color.white;
         
@@ -95,15 +94,47 @@ public class Player : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
-            items[idx].GetComponent<MeshRenderer>().enabled = false;
             ChangeInventory();
-            items[idx].GetComponent<MeshRenderer>().enabled = true;
+            ItemManager.instance.ActiveItem();
+        }
+    }
+
+    private void GetItem()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            if (ItemManager.instance.battery != null
+                && ItemManager.instance.battery.activeInHierarchy
+                && Vector3.Distance(ItemManager.instance.battery.transform.position, transform.position) <= 3f)
+            {
+                ItemManager.instance.AddGainItems("Battery");
+                ItemManager.instance.ActiveItem("Battery");
+                Destroy(ItemManager.instance.battery);
+            }
+
+            if (ItemManager.instance.killCamera != null
+                && ItemManager.instance.killCamera.activeInHierarchy
+                && Vector3.Distance(ItemManager.instance.killCamera.transform.position, transform.position) <= 3f)
+            {
+                ItemManager.instance.AddGainItems("Camera");
+                ItemManager.instance.ActiveItem("Camera");
+                Destroy(ItemManager.instance.killCamera);
+            }
+
+            if (ItemManager.instance.doll != null
+                && ItemManager.instance.doll.activeInHierarchy
+                && Vector3.Distance(ItemManager.instance.doll.transform.position, transform.position) <= 3f)
+            {
+                ItemManager.instance.AddGainItems("Doll");
+                ItemManager.instance.ActiveItem("Doll");
+                Destroy(ItemManager.instance.doll);
+            }
         }
     }
 
     private void ChangeInventory()
     {
-        if (idx < items.Count -1) idx++;
+        if (idx < ItemManager.instance.GainItemCount() - 1) idx++;
         else idx = 0;
     }
 }

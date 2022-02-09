@@ -13,6 +13,7 @@ TagManager:
   - 2FGhost2
   - Item
   - Head2
+  - Inventory
   layers:
   - Default
   - TransparentFX

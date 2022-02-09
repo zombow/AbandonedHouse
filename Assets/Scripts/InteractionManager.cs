@@ -11,7 +11,7 @@ public class InteractionManager : MonoBehaviour
     bool openStudyRoomDoor;
     GameObject[] ghostImages;
     Dictionary<GameObject, bool> isShowGhostImage = new Dictionary<GameObject, bool>();
-
+    
     public bool PullBookComplete
     {
         get
@@ -46,6 +46,15 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    public int getSuccessMissionCount()
+    {
+        int cnt = 0;
+        if (PullBookComplete) cnt++;
+        if (DropPictureComplete) cnt++;
+        if (OpenStudyRoomDoorButtonComplete) cnt++;
+
+        return cnt;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +65,7 @@ public class InteractionManager : MonoBehaviour
             isShowGhostImage.Add(ghostImages[i], false);
             ghostImages[i].SetActive(false);
         }
+        
     }
 
     // Update is called once per frame
@@ -79,4 +89,6 @@ public class InteractionManager : MonoBehaviour
     {
         return isShowGhostImage[ghostImage];
     }
+
+    
 }

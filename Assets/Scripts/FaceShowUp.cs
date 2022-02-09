@@ -44,7 +44,7 @@ public class FaceShowUp : MonoBehaviour
             if (ghostImagesAndHeads[ghostImages[i]] != null
                 && InteractionManager.instance.GetShowGhostImage(ghostImages[i]))
             {
-                print("!!!!!");
+                //print("!!!!!");
                 ghostImagesAndHeads[ghostImages[i]].GetComponent<Head2>().ShakeHead();
             }
         }
