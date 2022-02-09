@@ -62,6 +62,26 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Editor\AndroidVideoEditorUtil.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\Editor\TeleportTransitionWarpInspector.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Editor\MediaPlayerImageEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\TriggerZoneEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\OnBuildPreprocess.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\EditorStrings.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\EditorExtensions.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\EditorCommon.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\OnBuildTargetChanged.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\EditorData.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\EffectPulseEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\SkewingHandleEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\DynamicOcclusionAbstractBaseEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\EffectAbstractBaseEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\EffectFlickerEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\DynamicOcclusionRaycastingEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\OnBuildPostprocess.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\VolumetricLightBeamEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\ConfigEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\FoldableHeader.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\TargetList.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\VolumetricDustParticlesEditor.cs" />
+    <Compile Include="Assets\AN_Works\an_DownLoadAssets\Plugins\VolumetricLightBeam\Editor\DynamicOcclusionDepthBufferEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
