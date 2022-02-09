@@ -8,7 +8,10 @@ public class MyCamera : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip flashsound;
     public GameObject flash;
+
+    public float cooltime = 2;
     public bool isHit;
+    bool ready = true;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -31,8 +34,9 @@ public class MyCamera : MonoBehaviour
     public void UpdateFlash()
     {
         //Oculuse, VIVE·Î ±³Ã¼
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && ready == true)
         {
+            ready = false;
             audioSource.Play();
             flash.SetActive(true);
             Invoke("waittime", 0.3f);
@@ -41,9 +45,23 @@ public class MyCamera : MonoBehaviour
     void waittime()
     {
         flash.SetActive(false);
+        isHit = false;
+        StartCoroutine(CoolTime(cooltime));
+    }
+
+    IEnumerator CoolTime (float cool)
+    {
+        //yield return new WaitForSeconds(3);
+        while (cool > 0.1f)
+        {
+            cool -= Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        ready = true;
     }
     public void HitStatue()
     {
         isHit = true;
+        
     }
 }

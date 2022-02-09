@@ -9,6 +9,17 @@ public class FlashLight : MonoBehaviour
     public Transform hand;
     public LineRenderer lr;
 
+    public static FlashLight instance;
+
+    private float currentTime;
+    public float zombieDestroyTime = 3.0f;
+    public bool isZombieDestroyTimeOver;
+    public bool isStatueOnFlash;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,11 +68,32 @@ public class FlashLight : MonoBehaviour
                 }
             }
 
-            if (hitInfo.transform.CompareTag("Enemy"))
+            //----------------------------------------------------------
+            //좀비 3s간 파란불 맞으면
+            //나중에 파란불인조건도 if문안에&&으로 추가
+            if ((hitInfo.transform.gameObject.name == "Enemy_Zombie") || (hitInfo.transform.gameObject.name == "Enemy_Zombie2nd") || (hitInfo.transform.gameObject.name == "Enemy_Zombie3rd"))
             {
-                EnemyStateManager.instance.triggerRay(hitInfo);
+                currentTime += Time.deltaTime;
+                if (currentTime >= zombieDestroyTime)
+                {
+                    isZombieDestroyTimeOver = true;
+                    currentTime = 0;
+                }
+            }
+            else
+            {
+                isZombieDestroyTimeOver = false;
             }
 
+            //Statue 후레쉬 맞으며 사진찍여야함.
+            if (hitInfo.transform.gameObject.name == "Enemy_Statue")
+            {
+                isStatueOnFlash = true;
+            }
+            else
+            {
+                isStatueOnFlash = false;
+            }
         }
         else
         {

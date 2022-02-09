@@ -89,9 +89,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\Tools\InteractableTool.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\BrushController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\EnableUnpremultipliedAlpha.cs" />
-    <Compile Include="Assets\Scripts\EnemyBaby.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\BuiltinDemo\TimerController.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Video\Plugins\Android\NativeVideoPlayer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\ButtonTriggerZone.cs" />
     <Compile Include="Assets\Scripts\ItemManager.cs" />
@@ -123,7 +121,6 @@
     <Compile Include="Assets\Scripts\BGM.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarPacket.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNode.cs" />
-    <Compile Include="Assets\Scripts\FaceShowUp.cs" />
     <Compile Include="Assets\Scripts\OpenDoor.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\SpatialAnchor\Scripts\AnchorSession.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\CharacterCameraConstraint.cs" />
@@ -182,7 +179,6 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\OverlayPassthrough.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarLocalDriver.cs" />
     <Compile Include="Assets\Scripts\Portal.cs" />
-    <Compile Include="Assets\Scripts\EnemyStateManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\LocomotionTeleport.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\InteractionHandler.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarBase.cs" />
@@ -217,7 +213,6 @@
     <Compile Include="Assets\DownloadAssets\Magic_Portal\Scripts\OrbitCamera.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\OVROverlay\Scripts\OVROverlaySample.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\ControllerBoxController.cs" />
-    <Compile Include="Assets\Scripts\EnemyScene.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\AppDeeplink\UI\CustomDebugUI.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\PassthroughStyler.cs" />
@@ -272,6 +267,17 @@
     <Compile Include="Assets\Scripts\Hitrange.cs" />
     <Compile Include="Assets\Scripts\MyCamera.cs" />
     <Compile Include="Assets\Scripts\VideoSkip.cs" />
+    <Compile Include="Assets\Scripts\FinallEffectManager.cs" />
+    <Compile Include="Assets\Scripts\FinallEffectManager2.cs" />
+    <Compile Include="Assets\Scripts\FinallEffectManager3.cs" />
+    <Compile Include="Assets\Scripts\GhostImages.cs" />
+    <Compile Include="Assets\Scripts\ButtonManager3.cs" />
+    <Compile Include="Assets\Scripts\Enemy_FinalZombie.cs" />
+    <Compile Include="Assets\Scripts\ControllerManager3.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Statue.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Zombie.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Baby.cs" />
+    <Compile Include="Assets\Scripts\Pointer3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
