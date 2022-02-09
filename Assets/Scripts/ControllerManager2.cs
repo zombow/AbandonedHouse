@@ -41,7 +41,7 @@ public class ControllerManager2 : MonoBehaviour
 #elif VIVE
         return teleport2.GetState(SteamVR_Input_Sources.LeftHand);
 #else // OCULUS
-        return false;
+        return OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
 #endif
     }
 
@@ -52,7 +52,7 @@ public class ControllerManager2 : MonoBehaviour
 #elif VIVE
         return teleport2.GetStateUp(SteamVR_Input_Sources.LeftHand);
 #else // OCULUS
-        return false;
+        return OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch);
 #endif
     }
 
