@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     float currentTime;
     int idx = 0;
+    int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
         PlaySound();
         Interaction();
         GetItem();
-        ChangeFlashLightColor();
+        UseItem();
         ChangeItem();
     }
 
@@ -51,11 +52,17 @@ public class Player : MonoBehaviour
                 {
                     if (items[i].gameObject.name.Equals("BookItem") && !InteractionManager.instance.PullBookComplete)
                     {
+                        AudioSource audioPlayer = items[i].GetComponent<AudioSource>();
+                        audioPlayer.Play();
                         items[i].transform.position = Vector3.Lerp(items[i].transform.position, InteractionManager.BookItemTargetPosition, 0.5f);
                         ItemManager.instance.battery.SetActive(true);
                     }
                     else if (items[i].gameObject.name.Equals("Picture_7 (1)") && !InteractionManager.instance.DropPictureComplete)
                     {
+                        AudioSource audioPlayer = items[i].GetComponent<AudioSource>();
+                        audioPlayer.Play();
+
+                        StartCoroutine("WaitForSeconds");
                         Animation anim = items[i].gameObject.GetComponent<Animation>();
                         anim.Play("DropPicture");
                         InteractionManager.instance.DropPictureComplete = true;
@@ -75,19 +82,28 @@ public class Player : MonoBehaviour
             }
         }
 
-        
+        //TODO : 임시로 X 키 누르면 조각상 먹어직[
+        if (OVRInput.GetDown(OVRInput.Button.Three))
+        {
+            ItemManager.instance.score += 1;
+        }
     }
 
-    private void ChangeFlashLightColor()
+    private void UseItem()
     {
         if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.Touch)) 
         {
             if (ItemManager.instance.GetActiveGameObject("Battery"))
-                GameObject.Find("FlashLight").GetComponent<Light>().color = Color.blue;
+            {
+                GameObject.Find("Spotlight and Beam").GetComponent<Light>().color = Color.blue;
+                //GameObject.Find("MyFlashLight").GetComponent<Light>().color = Color.blue;
                 return;
+            }
+            if (ItemManager.instance.GetActiveGameObject("Camera"))
+                MyCamera.instance.UpdateFlash();
         }
-        GameObject.Find("FlashLight").GetComponent<Light>().color = Color.white;
-        
+        GameObject.Find("Spotlight and Beam").GetComponent<Light>().color = Color.white;
+
     }
 
     private void ChangeItem()
@@ -136,5 +152,10 @@ public class Player : MonoBehaviour
     {
         if (idx < ItemManager.instance.GainItemCount() - 1) idx++;
         else idx = 0;
+    }
+
+    IEnumerator WaitForSeconds()
+    {
+        yield return new WaitForSeconds(1);
     }
 }

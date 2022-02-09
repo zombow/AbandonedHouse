@@ -13,12 +13,20 @@ public class ItemManager : MonoBehaviour
     public GameObject battery;
     public GameObject killCamera;
     public GameObject doll;
+
+    public int score = 0;
     //public List<GameObject> gainItems = new List<GameObject>();
 
     public Dictionary<GameObject, bool> gainItems = new Dictionary<GameObject, bool>();
     List<GameObject> gainitems2 = new List<GameObject>();
 
     public GameObject[] inventory;
+
+    public int Score
+    {
+        get { return score; }
+        set { this.score = value; }
+    }
 
     // Start is called before the first frame update
     void Start()

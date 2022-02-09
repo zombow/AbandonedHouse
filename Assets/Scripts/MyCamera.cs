@@ -5,7 +5,7 @@ using UnityEngine;
 public class MyCamera : MonoBehaviour
 {
     public static MyCamera instance;
-    public AudioSource audioSource;
+    AudioSource audioSource;
     public AudioClip flashsound;
     public GameObject flash;
 
@@ -19,27 +19,36 @@ public class MyCamera : MonoBehaviour
     }
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
         isHit = false;
         flash.SetActive(false);
-        audioSource.clip = flashsound;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateFlash();
+        //UpdateFlash();
     }
 
     //flash 동작구간
     public void UpdateFlash()
     {
         //Oculuse, VIVE로 교체
-        if (Input.GetKeyDown(KeyCode.T) && ready == true)
+        //if (Input.GetKeyDown(KeyCode.T) && ready == true)
+        //{
+        //    ready = false;
+        //    audioSource.Play();
+        //    flash.SetActive(true);
+        //    Invoke("waittime", 0.3f);
+        //}
+        if (ready)
         {
             ready = false;
+            audioSource.clip = flashsound;
             audioSource.Play();
             flash.SetActive(true);
             Invoke("waittime", 0.3f);
+
         }
     }
     void waittime()

@@ -33,6 +33,12 @@ public class Portal : MonoBehaviour
             SetMessage("아직은 올라올 수 없어..");
             StartCoroutine("WaitForSeconds");
         }
+
+        if (ItemManager.instance.score >= 5)
+        {
+            isGateOpen = true;
+            GateOpen();
+        }
     }
 
     private void SetMessage(string message)
@@ -52,6 +58,9 @@ public class Portal : MonoBehaviour
             //soundCheck = true;
             //SoundManager.instance.GateSound();
             GateCollider.GetComponent<BoxCollider>().enabled = false;
+            storyText.enabled = false;
+            AudioSource audioPlayer = gameObject.GetComponent<AudioSource>();
+            audioPlayer.Play();
 
         }
         else
