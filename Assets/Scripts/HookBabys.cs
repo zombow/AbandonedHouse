@@ -7,7 +7,7 @@ public class HookBabys : MonoBehaviour
 {
     public GameObject player;
     public float speed = 5;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Animator anim;
 
     AudioSource audioSource;

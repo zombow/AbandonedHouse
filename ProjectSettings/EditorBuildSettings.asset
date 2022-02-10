@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 3b1cc8531d926234f8fe1a7b704d772a
   - enabled: 1
-    path: Assets/Scenes/AbandonedHouse.unity
-    guid: b451ef2cd7066f546963cf13cbba0ea6
-  - enabled: 1
     path: Assets/Scenes/OpeningScene.unity
     guid: 8fd98fadc0da4a24ca08e73a3fc48289
+  - enabled: 1
+    path: Assets/Scenes/AbandonedHouse.unity
+    guid: b451ef2cd7066f546963cf13cbba0ea6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: efba05cbac51b0448b52d220e5924f81, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 9e6d66f195247124a9546fe6c497e244, type: 2}

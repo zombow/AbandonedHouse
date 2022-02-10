@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     {
         instance = this;
         //audioPlayer = gameObject.GetComponent<AudioSource>();
-        SoundManager.instance.Background();
+        //SoundManager.instance.Background();
     }
 
     // Update is called once per frame

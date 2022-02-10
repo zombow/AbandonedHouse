@@ -20,7 +20,7 @@ public class FinallEffectManager3 : MonoBehaviour
     public FinallEffectManager finallEffectManager;
 
     public GameObject Key;
-
+    public GameObject Sphere;
     private void Awake()
     {
         audioSource = this.gameObject.GetComponent<AudioSource>();
@@ -32,6 +32,7 @@ public class FinallEffectManager3 : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Key.SetActive(true);
+            Sphere.SetActive(true);
             this.gameObject.SetActive(false);
             finallEffectManager.Head2Check = false;
             finallEffectManager.CryingCheck = false;

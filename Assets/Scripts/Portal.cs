@@ -16,7 +16,6 @@ public class Portal : MonoBehaviour
     void Start()
     {
         storyText = gameObject.GetComponentInChildren<TextMeshPro>();
-        //storyText.enabled = false;
         guide = "왼손 - 후레쉬 \n 오른손 - 아이템 \n" +
                 "왼손 트리거 - 상호작용 \n 오른손 트리거 - 아이템 사용하기 \n 오른손 'A' - 아이템 교체 \n 오른손 'B' - 아이템 획득" +
                 "\n\n HINT. 손전등으로 아이템 찾아보기";
@@ -58,8 +57,6 @@ public class Portal : MonoBehaviour
         if (isGateOpen == true)
         {
             Effect.gameObject.SetActive(false);
-            //soundCheck = true;
-            //SoundManager.instance.GateSound();
             GateCollider.GetComponent<BoxCollider>().enabled = false;
             storyText.enabled = false;
             AudioSource audioPlayer = gameObject.GetComponent<AudioSource>();
@@ -69,8 +66,6 @@ public class Portal : MonoBehaviour
         else
         {
             Effect.gameObject.SetActive(true);
-            //soundCheck = false;
-            //SoundManager.instance.GateSound();
             GateCollider.GetComponent<BoxCollider>().enabled = true;
         }
     }

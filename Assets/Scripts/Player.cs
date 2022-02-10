@@ -85,6 +85,13 @@ public class Player : MonoBehaviour
 
                         EnemyManager.instance.ActiveEnemy("Statue");
                     }
+                    else if (items[i].gameObject.name.Equals("Book_6"))
+                    {
+                        GameObject book = GameObject.Find("Smoke (1)");
+                        ParticleSystem.MainModule main = book.GetComponent<ParticleSystem>().main;
+                        main.startColor = Color.red;
+                        EnemyManager.instance.ActiveEnemy("Zombie");
+                    }
                     break;
                 }
             }

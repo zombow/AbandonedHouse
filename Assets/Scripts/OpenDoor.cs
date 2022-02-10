@@ -25,7 +25,7 @@ public class OpenDoor : MonoBehaviour
                 Animation anim2 = studyRoomDoor.GetComponent<Animation>();
                 anim2.Play("OpenDoor");
 
-                EnemyManager.instance.ActiveEnemy("Zombie");
+                //EnemyManager.instance.ActiveEnemy("Zombie");
                 AudioSource audio = studyRoomDoor.GetComponent<AudioSource>();
                 audio.transform.position = studyRoomDoor.transform.position;
                 audio.Play();

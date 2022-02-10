@@ -9,6 +9,7 @@ public class InteractionManager : MonoBehaviour
 
     bool dropPicture;
     bool openStudyRoomDoor;
+
     GameObject[] ghostImages;
     Dictionary<GameObject, bool> isShowGhostImage = new Dictionary<GameObject, bool>();
     

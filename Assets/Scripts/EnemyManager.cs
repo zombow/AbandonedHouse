@@ -27,9 +27,17 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (GameObject enemy in enemies)
         {
-            if (enemy.name.Contains(enemyName))
+            try
             {
-                enemy.SetActive(true);
+
+                if (enemy.name.Contains(enemyName))
+                {
+                    enemy.SetActive(true);
+                }
+            } 
+            catch (MissingReferenceException e)
+            {
+                continue;
             }
         }
     }

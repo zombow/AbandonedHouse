@@ -12,7 +12,12 @@ public class Enemy_Zombie : MonoBehaviour
     public Animator anim;
     public float attackDistance = 1f;
 
+    public AudioSource audioPlayer;
+    public AudioClip[] audioClips;
+
     string path;
+    bool isPlay;
+    float currentTime = 0;
     public enum State
     {
         Search,
@@ -25,6 +30,7 @@ public class Enemy_Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioPlayer = gameObject.GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         state = State.Search;
     }
@@ -32,6 +38,13 @@ public class Enemy_Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (this.gameObject.activeInHierarchy && !isPlay)
+        {
+            currentTime += Time.deltaTime;
+            PlaySpawnSound();
+            isPlay = true;
+        }
+
         switch (state)
         {
             case State.Search: UpdateSearch(); break;
@@ -73,6 +86,11 @@ public class Enemy_Zombie : MonoBehaviour
             //공격상태로 전이하고싶다
             state = State.Attack;
             anim.SetTrigger("Attack");//이게 animator의 parameter임.
+        }
+        if (currentTime > 0.01 && isPlay)
+        {
+            PlayGrawlingSound();
+            currentTime = 0;
         }
     }
 
@@ -123,10 +141,27 @@ public class Enemy_Zombie : MonoBehaviour
         Invoke("spawn", 1f);
     }
 
+    IEnumerator WaitForSeconds()
+    {
+        yield return new WaitForSeconds(3);
+    }
+
     private void spawn()
     {
         Transform zb = GetComponentInChildren<Transform>();
         Instantiate(Resources.Load(path), zb.position + Vector3.up * 1.2f, transform.rotation);
 
+    }
+
+    private void PlaySpawnSound()
+    {
+        audioPlayer.clip = audioClips[0];
+        audioPlayer.Play();
+    }
+
+    private void PlayGrawlingSound()
+    {
+        audioPlayer.clip = audioClips[1];
+        audioPlayer.Play();
     }
 }
