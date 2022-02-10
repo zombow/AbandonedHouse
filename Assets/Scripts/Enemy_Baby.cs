@@ -90,13 +90,13 @@ public class Enemy_Baby : MonoBehaviour
     }
 
     //주변콜라이더 범위
-    private void OnCollisionEnter(Collision collision)
+    private void OnTrigerEnter(Collision other)
     {
-        if (collision.gameObject.name.Contains("Doll"))
+        if (other.gameObject.name.Contains("Doll"))
         {
             UpdateDeath();
             teddybear.SetActive(true);
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
     private void UpdateDeath()

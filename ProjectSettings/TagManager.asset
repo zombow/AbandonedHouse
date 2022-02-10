@@ -14,6 +14,8 @@ TagManager:
   - Item
   - Head2
   - Inventory
+  - StoneBaby
+  - Floor
   layers:
   - Default
   - TransparentFX

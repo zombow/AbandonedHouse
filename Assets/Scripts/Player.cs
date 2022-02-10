@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -76,6 +77,8 @@ public class Player : MonoBehaviour
                         AudioSource audio = toiletDoor.GetComponent<AudioSource>();
                         audio.transform.position = toiletDoor.transform.position;
                         audio.Play();
+
+                        EnemyManager.instance.ActiveEnemy("Statue");
                     }
                     break;
                 }
@@ -83,8 +86,9 @@ public class Player : MonoBehaviour
         }
 
         //TODO : 임시로 X 키 누르면 조각상 먹어직[
-        if (OVRInput.GetDown(OVRInput.Button.Three))
+        if (OVRInput.GetDown(OVRInput.Button.Four))
         {
+            print("!!!!!");
             ItemManager.instance.score += 1;
         }
     }
@@ -100,7 +104,10 @@ public class Player : MonoBehaviour
                 return;
             }
             if (ItemManager.instance.GetActiveGameObject("Camera"))
+            {
                 MyCamera.instance.UpdateFlash();
+            }
+            
         }
         GameObject.Find("Spotlight and Beam").GetComponent<Light>().color = Color.white;
 
@@ -144,6 +151,31 @@ public class Player : MonoBehaviour
                 ItemManager.instance.AddGainItems("Doll");
                 ItemManager.instance.ActiveItem("Doll");
                 Destroy(ItemManager.instance.doll);
+                EnemyManager.instance.ActiveEnemy("Baby");
+            }
+
+            try
+            {
+                GameObject[] stonebabys = GameObject.FindGameObjectsWithTag("StoneBaby");
+                if (stonebabys.Length > 0)
+                {
+                    for (int i = 0; i < stonebabys.Length; i++)
+                    {
+                        if (stonebabys[i].activeInHierarchy
+                            && Vector3.Distance(stonebabys[i].transform.position, transform.position) <= 3f)
+                        {
+                            ItemManager.instance.Score += 1;
+                            //Destroy(stonebabys[i]);
+                            stonebabys[i].SetActive(false);
+                            break;
+                        }
+                    }
+                }
+
+            } 
+            catch (Exception e)
+            {
+                print(e);
             }
         }
     }

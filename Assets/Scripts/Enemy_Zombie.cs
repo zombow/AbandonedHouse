@@ -67,7 +67,6 @@ public class Enemy_Zombie : MonoBehaviour
         agent.SetDestination(player.transform.position);
         //만약타겟과의 거리가 공격 가능 거리보다 작다면
         float dist = Vector3.Distance(transform.position, player.transform.position);
-        print($"dist: {dist},attackDistance:{attackDistance}");
         if (dist < attackDistance)
         {
             //공격상태로 전이하고싶다
