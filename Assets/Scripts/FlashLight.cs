@@ -15,6 +15,12 @@ public class FlashLight : MonoBehaviour
     public float zombieDestroyTime = 3.0f;
     public bool isZombieDestroyTimeOver;
     public bool isStatueOnFlash;
+
+    public bool IsStatueOnFlash
+    {
+        get { return isStatueOnFlash; }
+        set { isStatueOnFlash = value; }
+    }
     private void Awake()
     {
         instance = this;
@@ -88,11 +94,13 @@ public class FlashLight : MonoBehaviour
             //Statue 후레쉬 맞으며 사진찍여야함.
             if (hitInfo.transform.gameObject.name == "Enemy_Statue")
             {
-                isStatueOnFlash = true;
+                //isStatueOnFlash = true;
+                IsStatueOnFlash = true;
             }
             else
             {
-                isStatueOnFlash = false;
+                //isStatueOnFlash = false;
+                IsStatueOnFlash = false;
             }
         }
         else

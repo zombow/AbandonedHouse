@@ -90,7 +90,7 @@ public class Enemy_Baby : MonoBehaviour
     }
 
     //주변콜라이더 범위
-    private void OnTrigerEnter(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.name.Contains("Doll"))
         {
@@ -109,7 +109,15 @@ public class Enemy_Baby : MonoBehaviour
         state = State.Death;
         anim.SetTrigger("Death");
         agent.SetDestination(startPosition);
+        Invoke("GetItem", 5f);
     }
 
+    private void GetItem()
+    {
+        Instantiate(Resources.Load("Prefabs/StoneBaby_Yellow"), transform.position + Vector3.up * 1.2f, transform.rotation);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+
+    }
     
 }

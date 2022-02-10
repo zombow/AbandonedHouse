@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2379093859047626259}
   - component: {fileID: 1042154733}
   - component: {fileID: 6656732761697308940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2379093859047626257}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.13849998, z: 2.7453}
-  m_LocalScale: {x: 4, y: 4, z: 5}
+  m_LocalPosition: {x: -0.654, y: 0.139, z: 7.458}
+  m_LocalScale: {x: 8.804233, y: 4, z: 14.425}
   m_Children: []
   m_Father: {fileID: 2379093859680174483}
   m_RootOrder: 1
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2379093859680174483}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lightmanager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 6838260692740281193}
   - component: {fileID: 6775039631461945961}
   - component: {fileID: 6775039631461945958}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera
   m_TagString: Inventory
   m_Icon: {fileID: 0}
@@ -283,8 +283,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d9bcf25a041e6584495fe7201553d71e, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 7b3c0ba204ef29745952e73c1cbbe30f, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -381,10 +381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd153cf9479ec434eab85c8718f28c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 6775039631461945961}
   flashsound: {fileID: 8300000, guid: d9bcf25a041e6584495fe7201553d71e, type: 3}
   flash: {fileID: 2379093859680174480}
   cooltime: 2
+  isHit: 0
 --- !u!1 &6775039631503336526
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6775039631503336525}
   - component: {fileID: 6775039631503336524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

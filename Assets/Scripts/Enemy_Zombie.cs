@@ -12,6 +12,7 @@ public class Enemy_Zombie : MonoBehaviour
     public Animator anim;
     public float attackDistance = 1f;
 
+    string path;
     public enum State
     {
         Search,
@@ -50,7 +51,7 @@ public class Enemy_Zombie : MonoBehaviour
     private void UpdateSearch()
     {
         //플레이어를 찾자
-        player = GameObject.Find("OVRPlayerController");
+        //player = GameObject.Find("OVRPlayerController");
 
         //그다음 문열림 &&(1층 책 -> 플래시 색깔 교체 아이템 취득)이벤트 bool &&로 추가
         //그냥 문만 열려도 댐.
@@ -100,9 +101,32 @@ public class Enemy_Zombie : MonoBehaviour
             return;
         }
         Destroy(gameObject, 1.5f);
+
         state = State.Death;
         anim.SetTrigger("Death");
         FlashLight.instance.isZombieDestroyTimeOver = false;
         nextZombie.gameObject.SetActive(true);
+
+        if (this.gameObject.name.Contains("2nd"))
+        {
+            path = "Prefabs/StoneBaby_Blue";
+        }
+        else if (this.gameObject.name.Contains("3rd"))
+        {
+            path = "Prefabs/StoneBaby_Green";
+        }
+        else
+        {
+            path = "Prefabs/StoneBaby_White";
+        }
+        
+        Invoke("spawn", 1f);
+    }
+
+    private void spawn()
+    {
+        Transform zb = GetComponentInChildren<Transform>();
+        Instantiate(Resources.Load(path), zb.position + Vector3.up * 1.2f, transform.rotation);
+
     }
 }

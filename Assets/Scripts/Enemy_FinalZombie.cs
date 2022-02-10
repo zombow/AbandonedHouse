@@ -11,6 +11,8 @@ public class Enemy_FinalZombie : MonoBehaviour
     public Animator anim;
     public float attackDistance = 1f;
 
+    string path;
+
     public enum State
     {
         Search,
@@ -100,5 +102,27 @@ public class Enemy_FinalZombie : MonoBehaviour
         state = State.Death;
         anim.SetTrigger("Death");
         FlashLight.instance.isZombieDestroyTimeOver = false;
+        Destroy(gameObject, 1.5f);
+
+        if (this.gameObject.name.Contains("2nd"))
+        {
+            path = "Prefabs/StoneBaby_Blue";
+        }
+        else if (this.gameObject.name.Contains("3rd"))
+        {
+            path = "Prefabs/StoneBaby_Green";
+        }
+        else
+        {
+            path = "Prefabs/StoneBaby_White";
+        }
+
+        Invoke("spawn", 1f);
+    }
+
+    private void spawn()
+    {
+        Transform zb = GetComponentInChildren<Transform>();
+        Instantiate(Resources.Load(path), zb.position + Vector3.up * 1.2f, transform.rotation);
     }
 }

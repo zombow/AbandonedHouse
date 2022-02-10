@@ -57,7 +57,7 @@ public class ItemManager : MonoBehaviour
     {
         foreach (GameObject item in gainItems.Keys)
         {
-            if (item.name == Itemname)
+            if (item.name.Contains(Itemname))
             {
                 gainItems[item] = true;
                 gainitems2.Add(item);
@@ -70,26 +70,11 @@ public class ItemManager : MonoBehaviour
     {
         foreach (GameObject item in gainItems.Keys)
         {
-            if (item.name == Itemname && gainItems[item])
+            if (item.name.Contains(Itemname) && gainItems[item])
                 item.SetActive(true);
             else
                 item.SetActive(false);
         }
-    }
-
-    public void ActiveItem(int idx)
-    {
-        
-        //for (int i = 0; i < inventory.Length; i++)
-        //{
-        //    if (gainItems[inventory[i]])
-        //    {
-        //        if (i != idx)
-        //            inventory[i].SetActive(false);
-        //        else
-        //            inventory[i].SetActive(true);
-        //    }
-        //}
     }
 
     public void ActiveItem()
@@ -127,11 +112,21 @@ public class ItemManager : MonoBehaviour
     {
         foreach (GameObject item in gainItems.Keys)
         {
-            if (item.name == Itemname && gainItems[item] && item.activeInHierarchy)
+            if (item.name.Contains(Itemname) && gainItems[item] && item.activeInHierarchy)
             {
                 return true;
             }
         }
         return false;
+    }
+
+    public GameObject GetDollObject()
+    {
+        foreach (GameObject obj in gainitems2)
+        {
+            if (obj.name.Contains("Doll"))
+                return obj;
+        }
+        return null;
     }
 }

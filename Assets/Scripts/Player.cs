@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     float currentTime;
     int idx = 0;
     int score = 0;
+    float kAdjustForce = 3;
+    Vector3 controllerPower;
+    Vector3 controllerAnglepower;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        controllerPower = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch) * kAdjustForce;
+        controllerAnglepower = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.RTouch);
         currentTime += Time.deltaTime;
         PlaySound();
         Interaction();
@@ -84,13 +89,6 @@ public class Player : MonoBehaviour
                 }
             }
         }
-
-        //TODO : 임시로 X 키 누르면 조각상 먹어직[
-        if (OVRInput.GetDown(OVRInput.Button.Four))
-        {
-            print("!!!!!");
-            ItemManager.instance.score += 1;
-        }
     }
 
     private void UseItem()
@@ -108,6 +106,27 @@ public class Player : MonoBehaviour
                 MyCamera.instance.UpdateFlash();
             }
             
+        }
+
+        if (ItemManager.instance.GetActiveGameObject("Doll") && OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger, OVRInput.Controller.Touch))
+        {
+            GameObject doll = GameObject.Find("MyDoll");
+            //GameObject doll = ItemManager.instance.GetDollObject();
+            if (doll != null)
+            {
+                GameObject doll2 = Instantiate(doll);
+                doll2.transform.position = doll.transform.position;
+                Rigidbody rb = doll2.GetComponent<Rigidbody>();
+                rb.isKinematic = false;
+                rb.velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch) * kAdjustForce;;
+                rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.RTouch); ;
+                doll2.transform.parent = null;
+
+                //1초뒤 Destroy
+                Destroy(doll2, 3f);
+                //ItemManager.instance.doll = doll;
+
+            }
         }
         GameObject.Find("Spotlight and Beam").GetComponent<Light>().color = Color.white;
 
