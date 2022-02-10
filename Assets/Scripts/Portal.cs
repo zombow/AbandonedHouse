@@ -11,11 +11,15 @@ public class Portal : MonoBehaviour
     public GameObject Effect;
     public GameObject GateCollider;
 
+    string guide;
     // Start is called before the first frame update
     void Start()
     {
         storyText = gameObject.GetComponentInChildren<TextMeshPro>();
         //storyText.enabled = false;
+        guide = "왼손 - 후레쉬 \n 오른손 - 아이템 \n" +
+                "왼손 트리거 - 상호작용 \n 오른손 트리거 - 아이템 사용하기 \n 오른손 'A' - 아이템 교체 \n 오른손 'B' - 아이템 획득" +
+                "\n\n HINT. 손전등으로 아이템 찾아보기";
     }
 
     // Update is called once per frame
@@ -23,15 +27,14 @@ public class Portal : MonoBehaviour
     {
         if (InteractionManager.instance.getSuccessMissionCount() == 0)
         {
-            SetMessage("왼손 - 후레쉬 \n 오른손 - 아이템 \n" +
-                "왼손 트리거 - 상호작용 \n 오른손 트리거 - 아이템 사용하기 \n 오른손 'A' - 아이템 교체 \n 오른손 'B' - 아이템 획득" +
-                "\n\n HINT. 손전등으로 아이템 찾아보기");
+            SetMessage(guide);
         }
         
         if (Vector3.Distance(transform.position, player.transform.position) < 1.6f)
         {
-            SetMessage("아직은 올라올 수 없어..");
+            SetMessage("아직은 올라갈 수 없다.");
             StartCoroutine("WaitForSeconds");
+            SetMessage(guide);
         }
 
         if (ItemManager.instance.score >= 5)
