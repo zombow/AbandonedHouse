@@ -19,6 +19,7 @@ public class FinallEffectManager3 : MonoBehaviour
 
     public FinallEffectManager finallEffectManager;
 
+    public GameObject Key;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class FinallEffectManager3 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Key.SetActive(true);
             this.gameObject.SetActive(false);
             finallEffectManager.Head2Check = false;
             finallEffectManager.CryingCheck = false;
