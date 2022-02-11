@@ -12,7 +12,9 @@ public class Enemy_FinalZombie : MonoBehaviour
     public float attackDistance = 1f;
 
     string path;
-
+    public AudioSource audioPlayer;
+    public AudioClip[] audioClips;
+    bool isPlay;
     public enum State
     {
         Search,
@@ -25,6 +27,7 @@ public class Enemy_FinalZombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioPlayer = gameObject.GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         state = State.Search;
     }
@@ -72,6 +75,10 @@ public class Enemy_FinalZombie : MonoBehaviour
             //공격상태로 전이하고싶다
             state = State.Attack;
             anim.SetTrigger("Attack");//이게 animator의 parameter임.
+        }
+        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            PlayGrawlingSound();
         }
     }
 
@@ -124,5 +131,16 @@ public class Enemy_FinalZombie : MonoBehaviour
     {
         Transform zb = GetComponentInChildren<Transform>();
         Instantiate(Resources.Load(path), zb.position + Vector3.up * 1.2f, transform.rotation);
+    }
+
+    private void PlaySpawnSound()
+    {
+        audioPlayer.PlayOneShot(audioClips[0]);
+    }
+
+    private void PlayGrawlingSound()
+    {
+        //audioPlayer.clip = audioClips[1];
+        audioPlayer.PlayOneShot(audioClips[1]);
     }
 }
