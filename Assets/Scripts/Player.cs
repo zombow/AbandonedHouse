@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
                 doll2.transform.position = doll.transform.position;
                 Rigidbody rb = doll2.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
+                doll2.GetComponent<MeshCollider>().isTrigger = false;
                 rb.velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch) * kAdjustForce;;
                 rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.RTouch); ;
                 doll2.transform.parent = null;

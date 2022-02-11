@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    public DoorOpenJ doorOpenJ;
+    public GameObject Finallhall;
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
+            Finallhall.SetActive(true);
             Destroy(this.gameObject);
-            doorOpenJ.isOpen = true;
-            
-            
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorOpenJ : MonoBehaviour
 {
     public Animator anim;
     public bool isOpen = false;
+    public bool check = false;
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(gameObject.transform.tag == "Player" && isOpen == true)
-    //    {
-    //        anim.SetTrigger("Open");
-    //        isOpen = false;
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.transform.tag == "Player" && check == true)
+        {
+            SceneManager.LoadScene("MenuScene");
+            //anim.SetTrigger("Open");
+            //isOpen = false;
+        }
+    }
 
     void Start()
     {
@@ -28,6 +31,7 @@ public class DoorOpenJ : MonoBehaviour
         {
             anim.SetTrigger("Open");
             isOpen = false;
+            check = true;
         }
     }
 }

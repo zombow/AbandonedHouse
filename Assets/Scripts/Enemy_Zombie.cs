@@ -25,6 +25,7 @@ public class Enemy_Zombie : MonoBehaviour
 		Death
 	}
 	public State state;
+	bool isDeath;
 
 	// Start is called before the first frame update
 	void Start()
@@ -37,12 +38,6 @@ public class Enemy_Zombie : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (this.gameObject.activeInHierarchy && !isPlay)
-		{
-			PlaySpawnSound();
-			isPlay = true;
-		}
-
 		switch (state)
 		{
 			case State.Search: UpdateSearch(); break;
@@ -50,12 +45,6 @@ public class Enemy_Zombie : MonoBehaviour
 			case State.Attack: UpdateAttack(); break;
 			case State.Death: UpdateDeath(); break;
 			default: break;
-		}
-
-		if (FlashLight.instance.isZombieDestroyTimeOver)
-		{
-			UpdateDeath();
-			agent.isStopped = true;
 		}
 	}
 
@@ -111,32 +100,32 @@ public class Enemy_Zombie : MonoBehaviour
 
 	private void UpdateDeath()
 	{
-		if (state == State.Death)
-		{
-			// 함수를 바로 종료하고싶다.
-			return;
-		}
-		Destroy(gameObject, 1.5f);
+		if (!isDeath)
+        {
+			isDeath = true;
+			Destroy(gameObject, 1.5f);
 
-		state = State.Death;
-		anim.SetTrigger("Death");
-		FlashLight.instance.isZombieDestroyTimeOver = false;
-		nextZombie.gameObject.SetActive(true);
+			//state = State.Death;
+			anim.SetTrigger("Death");
+			FlashLight.instance.isZombieDestroyTimeOver = false;
+			if (nextZombie != null)
+				nextZombie.gameObject.SetActive(true);
 
-		if (this.gameObject.name.Contains("2nd"))
-		{
-			path = "Prefabs/StoneBaby_Blue";
-		}
-		else if (this.gameObject.name.Contains("3rd"))
-		{
-			path = "Prefabs/StoneBaby_Green";
-		}
-		else
-		{
-			path = "Prefabs/StoneBaby_White";
-		}
+			if (this.gameObject.name.Contains("2nd"))
+			{
+				path = "Prefabs/StoneBaby_Blue";
+			}
+			else if (this.gameObject.name.Contains("3rd"))
+			{
+				path = "Prefabs/StoneBaby_Green";
+			}
+			else
+			{
+				path = "Prefabs/StoneBaby_White";
+			}
 		
-		Invoke("spawn", 1f);
+			Invoke("spawn", 1f);
+        }
 	}
 
 	IEnumerator WaitForSeconds()
@@ -158,7 +147,7 @@ public class Enemy_Zombie : MonoBehaviour
 
 	private void PlayGrawlingSound()
 	{
-		audioPlayer.clip = audioClips[1];
-		audioPlayer.Play();
+		//audioPlayer.clip = audioClips[1];
+		audioPlayer.PlayOneShot(audioClips[1]);
 	}
 }

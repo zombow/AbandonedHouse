@@ -12,7 +12,7 @@ public class Enemy_Baby : MonoBehaviour
     public float attackDistance = 2f;
     public GameObject teddybear;
     Vector3 startPosition;
-
+    AudioSource audioPlayer;
     public enum State
     {
         Search,
@@ -25,6 +25,7 @@ public class Enemy_Baby : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioPlayer = this.gameObject.GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         state = State.Search;
         startPosition = transform.position;
@@ -70,6 +71,7 @@ public class Enemy_Baby : MonoBehaviour
             state = State.Attack;
             anim.SetTrigger("Attack");//이게 animator의 parameter임.
         }
+        SoundPlay();
     }
 
     private void UpdateAttack()
@@ -120,4 +122,11 @@ public class Enemy_Baby : MonoBehaviour
 
     }
     
+    private void SoundPlay()
+    {
+        if (!audioPlayer.isPlaying)
+        {
+            audioPlayer.Play();
+        }
+    }
 }

@@ -16,6 +16,10 @@ public class FlashLight : MonoBehaviour
     public bool isZombieDestroyTimeOver;
     public bool isStatueOnFlash;
 
+    public bool zombie1Death;
+    public bool zombie2Death;
+    public bool zombie3Death;
+
     public bool IsStatueOnFlash
     {
         get { return isStatueOnFlash; }
@@ -74,21 +78,35 @@ public class FlashLight : MonoBehaviour
                 }
             }
 
-            //----------------------------------------------------------
-            //좀비 3s간 파란불 맞으면
-            //나중에 파란불인조건도 if문안에&&으로 추가
-            if ((hitInfo.transform.gameObject.name == "Enemy_Zombie") || (hitInfo.transform.gameObject.name == "Enemy_Zombie2nd") || (hitInfo.transform.gameObject.name == "Enemy_Zombie3rd"))
+            if (GameObject.Find("Spotlight and Beam").GetComponent<Light>().color == Color.blue)
             {
-                currentTime += Time.deltaTime;
-                if (currentTime >= zombieDestroyTime)
+                if (hitInfo.transform.gameObject.name == "Enemy_Zombie")
                 {
-                    isZombieDestroyTimeOver = true;
-                    currentTime = 0;
+                    currentTime += Time.deltaTime;
+                    if (currentTime >= zombieDestroyTime)
+                    {
+                        EnemyManager.instance.SetEnemyState(1, EnemyManager.State.Death);
+                        currentTime = 0;
+                    }
+                } 
+                else if (hitInfo.transform.gameObject.name == "Enemy_Zombie2nd")
+                {
+                    currentTime += Time.deltaTime;
+                    if (currentTime >= zombieDestroyTime)
+                    {
+                        EnemyManager.instance.SetEnemyState(2, EnemyManager.State.Death);
+                        currentTime = 0;
+                    }
                 }
-            }
-            else
-            {
-                isZombieDestroyTimeOver = false;
+                else if (hitInfo.transform.gameObject.name == "Enemy_Zombie3rd")
+                {
+                    currentTime += Time.deltaTime;
+                    if (currentTime >= zombieDestroyTime)
+                    {
+                        EnemyManager.instance.SetEnemyState(3, EnemyManager.State.Death);
+                        currentTime = 0;
+                    }
+                }
             }
 
             //Statue 후레쉬 맞으며 사진찍여야함.

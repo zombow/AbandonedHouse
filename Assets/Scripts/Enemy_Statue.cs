@@ -31,14 +31,15 @@ public class Enemy_Statue : MonoBehaviour
             if (currentTime >= posMoveTime)
             {
                 transform.position = pos_List[i].position;
+                SoundPlay();
                 currentTime = 0;
-                if (i< (pos_List.Length-1))
+                if (i < (pos_List.Length - 1))
                 {
-                i++;
+                    i++;
                 }
             }
         }
-        
+
         //Enemy죽는거 사진기 ray가 Statue맞으면서&&사진찍힘(Flash)일때 Enemy destroy 추가함!!
         if (MyCamera.instance.isHit==true)
         {
@@ -53,5 +54,11 @@ public class Enemy_Statue : MonoBehaviour
     {
         Destroy(gameObject);
 
+    }
+
+    private void SoundPlay()
+    {
+        AudioSource audioPlayer = GetComponent<AudioSource>();
+        audioPlayer.Play();
     }
 }

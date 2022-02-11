@@ -73,6 +73,7 @@
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarSettings.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\SPPquad.cs" />
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Scripts\EffectFlicker.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Zombie.cs" />
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Scripts\BatchingHelper.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\LaserPointer.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransition.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\CowController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\HandMeshUI.cs" />
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Scripts\EditorPrefsStrings.cs" />
+    <Compile Include="Assets\Scripts\Key.cs" />
     <Compile Include="Assets\Scripts\ControllerManager3.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\RoomManager.cs" />
     <Compile Include="Assets\Scripts\InteractionManager.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportDestination.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainButtonVisualController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\GrabObject.cs" />
+    <Compile Include="Assets\Scripts\DoorOpenJ.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\BoneCapsuleTriggerLogic.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\SimpleCapsuleWithStickMovement.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\ColorGrabbable.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\DistanceGrab\Scripts\DistanceGrabberSample.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\HandsInteraction\Scripts\InteractableRegistry.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Statue.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\HandedInputSelector.cs" />
     <Compile Include="Assets\Scripts\Pointer3.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\DistanceGrabbable.cs" />
@@ -136,6 +140,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Passthrough\Scripts\SceneSampler.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\DistanceGrab\Scripts\GrabManager.cs" />
     <Compile Include="Assets\Scripts\BGM.cs" />
+    <Compile Include="Assets\Scripts\Enemy_Baby.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarPacket.cs" />
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Scripts\CachedLightProperties.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTargetHandlerNode.cs" />
@@ -150,6 +155,7 @@
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Scripts\TriggerZone.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainLocomotive.cs" />
     <Compile Include="Assets\Oculus\Avatar\Scripts\OvrAvatarRenderComponent.cs" />
+    <Compile Include="Assets\Scripts\HookBabys.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandlerThumbstick.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\LocalAvatar\Scripts\GazeTargetSpawner.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrainCrossingController.cs" />
@@ -182,6 +188,7 @@
     <Compile Include="Assets\Oculus\SampleFramework\Core\DebugUI\Scripts\DebugUIBuilder.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportInputHandlerTouch.cs" />
     <Compile Include="Assets\Scripts\FinallEffectManager3.cs" />
+    <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\VoipManager.cs" />
     <Compile Include="Assets\Oculus\Voice\Demo\Scripts\UIShapesDemo\Instructions.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\Firebase\SampleUI.cs" />
@@ -192,6 +199,7 @@
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Scripts\MaterialModifier.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportOrientationHandler.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\RemoteLoopback\Scripts\RemoteLoopbackManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy_FinalZombie.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Core\Locomotion\Scripts\TeleportTransitionInstant.cs" />
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\RemotePlayer.cs" />
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Samples\Scripts\CheckIfInsideBeam.cs" />
@@ -274,14 +282,7 @@
     <Compile Include="Assets\Oculus\Avatar\Samples\SocialStarter\Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Scripts\TrackSegment.cs" />
     <Compile Include="Assets\DownloadAssets\Plugins\VolumetricLightBeam\Samples\Scripts\Rotater.cs" />
-    <Compile Include="Assets\Scripts\Enemy_FinalZombie.cs" />
-    <Compile Include="Assets\Scripts\Enemy_Statue.cs" />
-    <Compile Include="Assets\Scripts\Enemy_Baby.cs" />
-    <Compile Include="Assets\Scripts\Enemy_Zombie.cs" />
-    <Compile Include="Assets\Scripts\EnemyManager.cs" />
-    <Compile Include="Assets\Scripts\HookBabys.cs" />
-    <Compile Include="Assets\Scripts\Key.cs" />
-    <Compile Include="Assets\Scripts\DoorOpenJ.cs" />
+    <Compile Include="Assets\Scripts\FinallHall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
