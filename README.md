@@ -1,6 +1,7 @@
 # AbandonedHouse
 
-## 장르
+## ![AbandonedHouse](https://github.com/zombow/AbandonedHouse/assets/82148187/4b489267-e4e1-4403-b859-c32820de45f0)
+장르
 - 공포
 - 탈출
 
